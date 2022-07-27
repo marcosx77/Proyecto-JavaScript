@@ -1,0 +1,21 @@
+Hola Marcos! cómo estás?
+
+Buen trabajo!, más allá de las dificultades para aplicar arrays que me mencionaste, el array en la línea 12 está muy bien aplicado y tu trabajo en general lo veo bien orientado.
+Tu desafío queda aprobado! 
+
+Una forma en la que podrías aplicar arrays es creando un array de objetos con todas las monedas que trabaja tu simulador, cada objeto es una moneda, que tendría su nombre, sus siglas, su precio de compra y de venta, también podés sumarles un atributo más que sea el interés, es decir, cuánto rinde un plazo fijo en cada una de las divisas, o cual es la taza de interés sacando un préstamos en cada moneda. 
+A continuación un ejemplo:
+
+const monedas = [
+{nombre: "Dolar Estadounidense", siglas: "USD", precioCompra: 350, precioVenta: 340, intPlazoFijo: 2, intPrestamo: 15}
+{Euro}
+{Libra}
+{Reales}
+etc.
+] 
+
+
+
+Espero que esta devolución te haya sido de ayuda, cualquier duda que tengas me podés contactar por el chat de la plataforma
+
+Saludos y buen código!
