@@ -25,7 +25,7 @@ const mostrarCotizaciones = () => {
   for (const cot of moneda) {
     IdCotiza.innerHTML += `
       <div class="col-md-3 card tarjeta" style="width: 18rem;">
-          <img src="../img/moneda${contador}.jpg" class="card-img-top" alt="test">
+          <img src="./img/moneda${contador}.jpg" class="card-img-top" alt="test">
           <div class="card-body">
               <h5 class="card-title">${cot.nombre} (${cot.sigla})</h5>
               <p class="card-text">
@@ -44,7 +44,7 @@ const MuestraSimulacionPrestamo = (prestamo) => {
   Tarjeta.className = "col-md-4 card tarjeta";
   Tarjeta.style = "width: 18rem";
   Tarjeta.innerHTML = `<div class="card-body">
-        <img src="../img/simula_prestamo4.jpg" class="card-img-top" alt="test">
+        <img src="./img/simula_prestamo4.jpg" class="card-img-top" alt="test">
         <h5 class="card-title">Simulación del Prestamo</h5>
         <p class="card-text">
         <b>Cuota Mensual: ${prestamo.cuota}</b> <br>
@@ -64,7 +64,7 @@ const MuestraOperacionMonedaExtrajera = (
 ) => {
   idOperaMoneda.innerHTML += `
       <div class="col-md-3 card tarjeta" style="width: 18rem;">
-          <img src="../img/moneda${idmoneda}.jpg" class="card-img-top" alt="test">
+          <img src="./img/moneda${idmoneda}.jpg" class="card-img-top" alt="test">
           <div class="card-body">
               <h5 class="card-title"> ${operacion}</h5>
               <h5 class="card-title"> ${moneda[idmoneda].nombre } (${moneda[idmoneda].sigla})</h5>
