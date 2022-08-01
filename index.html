@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicios</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
-<body >
+
+<body>
   <!--<div class="pol"></div>-->
   <header>
     <nav class="navbar navbar-expand-lg shadow-lg navbar-dark">
@@ -30,118 +32,131 @@
       </div>
     </nav>
   </header>
-    <div class="pol"></div>
-    <main> 
-      <div class="container">
-        <div class="row row-cols-2">
-          <div class="col">
-            <p class="fs-1 fw-bolder">Te presto</p>
-          </div>
-          <div class="col borde">
-            <h2>Cotizaciones</h2>
-            <h3>Dolar: Compra....... Venta.........</h3>
-          </div>
-          <div class="col">
-            <p class="fs-2 fw-normal">Servicios Financieros</p>
-          </div>
-          <div class="col"></div>
-        </div>
-      </div>
 
-      <div class="container">
-        <div class="row justify-content-md-center">
-          <div class="col-md-5">
-            <h2>Calculá Tu Prestamo</h2>
-            <input type="text" class="form-control" required="obligatorio" placeholder="Ingresa tu Nombre"
-              aria-label="Ingresa tu Nombre" />
-            <input type="text" class="form-control" required="obligatorio" placeholder="Ingresa tu Apellido"
-              aria-label="Ingresa tu Apellido" />
-            <input type="text" class="form-control" required="obligatorio" placeholder="Correo Electronico"
-              aria-label="Correo Electronico" />
-            <div class="input-group mb-3">
-              <span class="input-group-text">$</span>
-              <input type="text" class="form-control" placeholder="Monto del Prestamo" aria-label="Monto del Prestamo" />
-            </div>
-            <div class="form-floating">
-              <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                <option selected>Seleccione el %</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-              </select>
-              <label for="floatingSelect">% Interes dispuesto a Pagar</label>
-            </div>
-            <div class="form-floating">
-              <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                <option selected>Plazo</option>
-                <option value="1">12</option>
-                <option value="2">24</option>
-                <option value="3">36</option>
-                <option value="4">48</option>
-                <option value="5">60</option>
-                <option value="6">72</option>
-                <option value="7">84</option>
-              </select>
-              <label for="floatingSelect">Plazo a Pagar (Meses)</label>
-            </div>
-            <div class="d-grid gap-2 shadow-lg border-radius-sm">
-              <button class="btn btn-primary" type="button">
-                Calcular Prestamo
-              </button>
-            </div>
-          </div>
+  <div class="pol"></div>
+  <main>
+    <div class="container">
+      <div class="row row-cols-2">
+        <div class="col">
+          <p class="fs-1 fw-bolder">Te presto</p>
+          <p class="fs-2 fw-normal">Servicios Financieros</p>
         </div>
       </div>
+    </div>
 
-      <div class="container">
-        <div class="row justify-content-md-left">
-          <div class="col-md-4">
-              <h3>Compra/Venta Moneda Extrajeta</h3>
-              <p>La mejor cotización del mercado</p>
-              <p>Dolares/Euros/Reales </p>
-              <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Consulta Cotizaciones</button>
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-md-5 borde">
+          <h2>Calculá Tu Prestamo</h2>
+          <input id="PresNombre" type="text" class="form-control" required="obligatorio" placeholder="Ingresa tu Nombre"
+            aria-label="Ingresa tu Nombre" />
+          <input id="PresApelli" type="text" class="form-control" required="obligatorio"
+            placeholder="Ingresa tu Apellido" aria-label="Ingresa tu Apellido" />
+          <input id="PresCorreo" type="text" class="form-control" required="obligatorio"
+            placeholder="Correo Electronico" aria-label="Correo Electronico" />
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input id="PresMonto" type="text" class="form-control" placeholder="Monto del Prestamo"
+              aria-label="Monto del Prestamo" />
           </div>
-  
-          <div class="col-md-4">
-            <h4>Simulador de Compra/Venta</h3>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                  Compra
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Venta
-                </label>
-              </div>
-              <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected>Seleccione Moneda</option>
-                <option value="1">Dolares</option>
-                <option value="2">Euros</option>
-                <option value="3">Reales</option>
-              </select>
-              <div class="input-group mb-3">
-                <span class="input-group-text">$</span>
-                <input type="text" class="form-control" placeholder="Ingrese el Monto a Comprar/Vender" aria-label="Ingrese el Monto a Comprar/Vender" />
-              </div>
-              <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Calcular Operación</button>
+          <div class="form-floating">
+            <select id="PresInteres" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option selected>Seleccione el %</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+            <label for="floatingSelect">% Interes dispuesto a Pagar</label>
+          </div>
+          <div class="form-floating">
+            <select id="PresPlazo" class="form-select" id="floatingSelect" aria-label="Floating label select example">
+              <option selected>Plazo</option>
+              <option value="12">12</option>
+              <option value="24">24</option>
+              <option value="36">36</option>
+              <option value="48">48</option>
+              <option value="60">60</option>
+              <option value="72">72</option>
+              <option value="84">84</option>
+            </select>
+            <label for="floatingSelect">Plazo a Pagar (Meses)</label>
+          </div>
+          <div class="d-grid gap-2 shadow-lg border-radius-sm">
+            <button id="btnCalculaPrestamo" class="btn btn-primary" type="button">
+              Calcular Prestamo
+            </button>
+          </div>
         </div>
+        <div id="CardPrestamo" class="col-md-4">
+
         </div>
       </div>
-    </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-md-left">
+        <div class="col-md-3">
+          <h3>Moneda Extrajeta</h3>
+          <p>La mejor cotización del mercado</p>
+          <p>Dolares/Euros/Reales </p>
+          <button id="btnConsultaCotiza" type="button" class="btn btn-primary" data-bs-toggle="button"
+            autocomplete="off">Consulta
+            Cotizaciones</button>
+        </div>
+        <div id="cotizaciones">
+
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row justify-content-md-lef">
+        <div class="col-md-5 borde">
+          <h3>Simulador de Compra/Venta</h3>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioCompra" checked>
+            <label class="form-check-label" for="flexRadioDefault2">
+              Compra
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioVenta">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Venta
+            </label>
+          </div>
+          <select id="SelecMoneda" class="form-select form-select-sm" aria-label=".form-select-sm example">
+            <option selected>Seleccione Moneda</option>
+            <option value="0">Dolares</option>
+            <option value="1">Euros</option>
+            <option value="2">Reales</option>
+          </select>
+          <div class="input-group mb-3">
+            <span class="input-group-text">$</span>
+            <input id="MontoCompVta" type="text" class="form-control" placeholder="Ingrese el Monto a Comprar/Vender"
+              aria-label="Ingrese el Monto a Comprar/Vender" />
+          </div>
+          <button id="btnCalculaComVta" type="button" class="btn btn-primary" data-bs-toggle="button"
+            autocomplete="off">Calcular
+            Operación</button>
+        </div>
+        <div id="OperaMoneda">
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
-    <script src="./js/script.js"></script>
+  <script src="./js/script.js"></script>
 </body>
+
 </html>
