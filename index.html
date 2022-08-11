@@ -1,162 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ejercicios</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styles.css">
-</head>
+  <body>
+    <!--<div class="pol"></div>-->
+    <header>
+      <nav class="navbar navbar-expand-lg shadow-lg navbar-dark">
+        <div class="container-md">
+          <!-- <a class="navbar-brand" href="#">Te Presto</a> -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse justify-content-center"
+            id="navbarNavAltMarkup"
+          >
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              <a class="nav-link active" href="#">Prestamos</a>
+              <a class="nav-link active" href="#">Compra-Venta Moneda</a>
+              <a class="nav-link active" href="#">Quienes Somos</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
 
-<body>
-  <!--<div class="pol"></div>-->
-  <header>
-    <nav class="navbar navbar-expand-lg shadow-lg navbar-dark">
-      <div class="container-md">
-        <!-- <a class="navbar-brand" href="#">Te Presto</a> -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            <a class="nav-link active" href="#">Prestamos</a>
-            <a class="nav-link active" href="#">Compra-Venta Moneda</a>
-            <a class="nav-link active" href="#">Quienes Somos</a>
+    <div class="pol"></div>
+    <main>
+      <div class="container titulo">
+        <div class="row">
+          <div class="col">
+            <p class="TituloPriocipal">Te presto</p>
+            <p class="texto">Servicios Financieros</p>
           </div>
         </div>
       </div>
-    </nav>
-  </header>
 
-  <div class="pol"></div>
-  <main>
-    <div class="container">
-      <div class="row row-cols-2">
-        <div class="col">
-          <p class="fs-1 fw-bolder">Te presto</p>
-          <p class="fs-2 fw-normal">Servicios Financieros</p>
+      <div class="container secciones">
+        <div class="row justify-content-center">
+            <div class="col-md-12 card tarjeta shadow-lg text-center">
+
+              <h2>Simulá tu Préstamo</h2>
+              <h3>Ahora</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-4 card tarjeta shadow-lg ">
+              <h4>¿Cuáles son los requisitos para pedir un préstamo?</h4>
+              <p>1. Ser ciudadano argentino o residente en el país.</p>
+              <p>2. Tener 18 años o más.</p>
+              <p>3. Tener cuenta bancaria propia.</p>
+              <p>4. Tener ingresos comprobables mayores a $10.000.</p> <br>
+
+              <h3>Llevalo en el Acto</h3>
+              <h3>En cuotas Fijas</h3>
+              <h3>En Pesos!</h3> <br>
+              <h3>¡Así de Facíl!</h3>
+          </div>
+          <div class="col-md-4 card tarjeta shadow-lg">
+            <h2>Ingresa los Datos solicitados</h2>
+            <input
+              id="PresNombre"
+              type="text"
+              class="form-control"
+              required="obligatorio"
+              placeholder="Ingresa tu Nombre"
+              aria-label="Ingresa tu Nombre"
+            />
+            <input
+              id="PresApelli"
+              type="text"
+              class="form-control"
+              required="obligatorio"
+              placeholder="Ingresa tu Apellido"
+              aria-label="Ingresa tu Apellido"
+            />
+            <input
+              id="PresCorreo"
+              type="text"
+              class="form-control"
+              required="obligatorio"
+              placeholder="Correo Electronico"
+              aria-label="Correo Electronico"
+            />
+            <div class="input-group mb-3">
+              <span class="input-group-text">$</span>
+              <input
+                id="PresMonto"
+                type="text"
+                class="form-control"
+                placeholder="Monto del Prestamo"
+                aria-label="Monto del Prestamo"
+              />
+            </div>
+            <div class="form-floating">
+              <select
+                id="PresInteres"
+                class="form-select"
+                id="floatingSelect"
+                aria-label="Floating label select example"
+              >
+                <option selected>Seleccione el %</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+              </select>
+              <label for="floatingSelect">% Interes dispuesto a Pagar</label>
+            </div>
+            <div class="form-floating">
+              <select
+                id="PresPlazo"
+                class="form-select"
+                id="floatingSelect"
+                aria-label="Floating label select example"
+              >
+                <option selected>Plazo</option>
+                <option value="12">12</option>
+                <option value="24">24</option>
+                <option value="36">36</option>
+                <option value="48">48</option>
+                <option value="60">60</option>
+                <option value="72">72</option>
+                <option value="84">84</option>
+              </select>
+              <label for="floatingSelect">Plazo a Pagar (Meses)</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="GuardarSimulaPrestamo"
+              />
+              <label class="form-check-label" for="flexCheckDefault">
+                Guardar Simulación
+              </label>
+            </div>
+            <div class="d-grid gap-2 shadow-lg border-radius-sm">
+              <button
+                id="btnCalculaPrestamo"
+                class="btn btn-primary"
+                type="button"
+              >
+                Calcular Prestamo
+              </button>
+              <button
+                id="btnPrestamoSimula"
+                class="btn btn-primary"
+                type="button"
+              >
+                Ver Última Simulación
+              </button>
+            </div>
+          </div>
+          <div id="CardPrestamo" class="col-md-4"></div>
         </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="row justify-content-md-center">
-        <div class="col-md-5 borde">
-          <h2>Calculá Tu Prestamo</h2>
-          <input id="PresNombre" type="text" class="form-control" required="obligatorio" placeholder="Ingresa tu Nombre"
-            aria-label="Ingresa tu Nombre" />
-          <input id="PresApelli" type="text" class="form-control" required="obligatorio"
-            placeholder="Ingresa tu Apellido" aria-label="Ingresa tu Apellido" />
-          <input id="PresCorreo" type="text" class="form-control" required="obligatorio"
-            placeholder="Correo Electronico" aria-label="Correo Electronico" />
-          <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input id="PresMonto" type="text" class="form-control" placeholder="Monto del Prestamo"
-              aria-label="Monto del Prestamo" />
-          </div>
-          <div class="form-floating">
-            <select id="PresInteres" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option selected>Seleccione el %</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-            </select>
-            <label for="floatingSelect">% Interes dispuesto a Pagar</label>
-          </div>
-          <div class="form-floating">
-            <select id="PresPlazo" class="form-select" id="floatingSelect" aria-label="Floating label select example">
-              <option selected>Plazo</option>
-              <option value="12">12</option>
-              <option value="24">24</option>
-              <option value="36">36</option>
-              <option value="48">48</option>
-              <option value="60">60</option>
-              <option value="72">72</option>
-              <option value="84">84</option>
-            </select>
-            <label for="floatingSelect">Plazo a Pagar (Meses)</label>
-          </div>
-          <div class="d-grid gap-2 shadow-lg border-radius-sm">
-            <button id="btnCalculaPrestamo" class="btn btn-primary" type="button">
-              Calcular Prestamo
+      <div class="container secciones">
+        <div class="row justify-content-star">
+          <div class="col-md-3">
+            <h2>Moneda Extrajeta</h2>
+            <p>La mejor cotización del mercado</p>
+            <p>Dolares/Euros/Reales</p>
+            <button
+              id="btnConsultaCotiza"
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="button"
+              autocomplete="off"
+            >
+              Consulta Cotizaciones
             </button>
           </div>
-        </div>
-        <div id="CardPrestamo" class="col-md-4">
+              <div class="col-md-9">
+                <div id="cotizaciones" class="row">
 
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="row justify-content-md-left">
-        <div class="col-md-3">
-          <h3>Moneda Extrajeta</h3>
-          <p>La mejor cotización del mercado</p>
-          <p>Dolares/Euros/Reales </p>
-          <button id="btnConsultaCotiza" type="button" class="btn btn-primary" data-bs-toggle="button"
-            autocomplete="off">Consulta
-            Cotizaciones</button>
-        </div>
-        <div id="cotizaciones">
-
+                </div>
+              </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="row justify-content-md-lef">
-        <div class="col-md-5 borde">
-          <h3>Simulador de Compra/Venta</h3>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioCompra" checked>
-            <label class="form-check-label" for="flexRadioDefault2">
-              Compra
-            </label>
+      <div class="container secciones">
+        <div class="row justify-content-md-lef">
+          <div class="col-md-5">
+            <h2>Simulador de Compra/Venta</h2>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="RadioCompra"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Compra
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="RadioVenta"
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Venta
+              </label>
+            </div>
+            <select
+              id="SelecMoneda"
+              class="form-select form-select-sm"
+              aria-label=".form-select-sm example"
+            >
+              <option selected>Seleccione Moneda</option>
+              <option value="0">Dolares</option>
+              <option value="1">Euros</option>
+              <option value="2">Reales</option>
+            </select>
+            <div class="input-group mb-3">
+              <span class="input-group-text">$</span>
+              <input
+                id="MontoCompVta"
+                type="text"
+                class="form-control"
+                placeholder="Ingrese el Monto a Comprar/Vender"
+                aria-label="Ingrese el Monto a Comprar/Vender"
+              />
+            </div>
+            <button
+              id="btnCalculaComVta"
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="button"
+              autocomplete="off"
+            >
+              Calcular Operación
+            </button>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioVenta">
-            <label class="form-check-label" for="flexRadioDefault1">
-              Venta
-            </label>
-          </div>
-          <select id="SelecMoneda" class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option selected>Seleccione Moneda</option>
-            <option value="0">Dolares</option>
-            <option value="1">Euros</option>
-            <option value="2">Reales</option>
-          </select>
-          <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input id="MontoCompVta" type="text" class="form-control" placeholder="Ingrese el Monto a Comprar/Vender"
-              aria-label="Ingrese el Monto a Comprar/Vender" />
-          </div>
-          <button id="btnCalculaComVta" type="button" class="btn btn-primary" data-bs-toggle="button"
-            autocomplete="off">Calcular
-            Operación</button>
-        </div>
-        <div id="OperaMoneda">
+          <div class="col-md-6">
+            <div id="OperaMoneda" class="row">
 
+            </div>
+          </div>
+          <!-- <div id="OperaMoneda"></div> -->
         </div>
       </div>
-    </div>
-  </main>
+    </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-  <script src="./js/script.js"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
