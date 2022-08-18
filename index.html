@@ -25,7 +25,7 @@
   <body>
     <!--<div class="pol"></div>-->
     <header>
-      <nav class="navbar navbar-expand-lg shadow-lg navbar-dark">
+      <nav id="mnuInicio" class="navbar navbar-expand-lg shadow-lg navbar-light bg-light">
         <div class="container-md">
           <!-- <a class="navbar-brand" href="#">Te Presto</a> -->
           <button
@@ -40,13 +40,13 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse justify-content-center"
+            class="collapse navbar-collapse justify-content-end"
             id="navbarNavAltMarkup"
           >
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-              <a class="nav-link active" href="#">Prestamos</a>
-              <a class="nav-link active" href="#">Compra-Venta Moneda</a>
+              <a class="nav-link active" aria-current="page" href="#mnuInicio">Inicio</a>
+              <a class="nav-link active" href="#MnuPrestamo">Prestamos</a>
+              <a class="nav-link active" href="#MnuCompVta">Compra-Venta Moneda</a>
               <a class="nav-link active" href="#">Quienes Somos</a>
             </div>
           </div>
@@ -54,18 +54,13 @@
       </nav>
     </header>
 
-    <div class="pol"></div>
     <main>
-      <div class="container titulo">
-        <div class="row">
-          <div class="col">
-            <p class="TituloPriocipal">Te presto</p>
-            <p class="texto">Servicios Financieros</p>
-          </div>
-        </div>
+      <div class="cabecera titulo">
+          <p class="TituloPriocipal">Te presto</p>
+          <p class="texto">Servicios Financieros</p>
       </div>
 
-      <div class="container secciones">
+      <div  id="MnuPrestamo" class="container secciones">
         <div class="row justify-content-center">
             <div class="col-md-12 card tarjeta shadow-lg text-center">
 
@@ -127,9 +122,9 @@
                 id="PresInteres"
                 class="form-select"
                 id="floatingSelect"
-                aria-label="Floating label select example"
-              >
-                <option selected>Seleccione el %</option>
+                aria-label="Floating label select example">
+                <option value="PresInteres" selected disabled>%</option>    
+                <!-- <option selected>Seleccione el %</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -139,7 +134,7 @@
                 <option value="7">7</option>
                 <option value="8">8</option>
                 <option value="9">9</option>
-                <option value="10">10</option>
+                <option value="10">10</option> -->
               </select>
               <label for="floatingSelect">% Interes dispuesto a Pagar</label>
             </div>
@@ -150,14 +145,15 @@
                 id="floatingSelect"
                 aria-label="Floating label select example"
               >
-                <option selected>Plazo</option>
+              <option value="PresPlazo" selected disabled>Plazo</option> 
+                <!-- <option selected>Plazo</option>
                 <option value="12">12</option>
                 <option value="24">24</option>
                 <option value="36">36</option>
                 <option value="48">48</option>
                 <option value="60">60</option>
                 <option value="72">72</option>
-                <option value="84">84</option>
+                <option value="84">84</option> -->
               </select>
               <label for="floatingSelect">Plazo a Pagar (Meses)</label>
             </div>
@@ -193,7 +189,7 @@
         </div>
       </div>
 
-      <div class="container secciones">
+      <div id="MnuCotiza" class="container secciones">
         <div class="row justify-content-star">
           <div class="col-md-3">
             <h2>Moneda Extrajeta</h2>
@@ -216,7 +212,7 @@
               </div>
         </div>
       </div>
-      <div class="container secciones">
+      <div  id="MnuCompVta" class="container secciones">
         <div class="row justify-content-md-lef">
           <div class="col-md-5">
             <h2>Simulador de Compra/Venta</h2>
@@ -288,6 +284,7 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./js/script.js"></script>
   </body>
 </html>

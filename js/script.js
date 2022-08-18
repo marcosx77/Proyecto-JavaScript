@@ -17,6 +17,11 @@ let btnConsultaCotiza = document.getElementById("btnConsultaCotiza");
 let btnCalculaPrestamo = document.getElementById("btnCalculaPrestamo");
 let btnCalculaComVta = document.getElementById("btnCalculaComVta");
 let chkPrestamo = document.getElementById("GuardarSimulaPrestamo");
+const SelectPorInt = document.querySelector("#PresInteres");
+const SelectPlazo = document.querySelector("#PresPlazo");
+
+PorInt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+PrePlazo = [12, 24, 36, 48, 60, 72, 84];
 
 //FUNCION QUE DA FORMATO DE MONEDA
 const formatPeso = new Intl.NumberFormat("es-CO", {
@@ -24,6 +29,16 @@ const formatPeso = new Intl.NumberFormat("es-CO", {
   currency: "COP",
   minimumFractionDigits: 0,
 });
+
+//funcion para crgar select
+function cargarSelect(array, select) {
+  array.forEach((element) => {
+    let option = `<option>${element}</option>`;
+    select.innerHTML += option;
+  });
+}
+cargarSelect(PorInt, SelectPorInt);
+cargarSelect(PrePlazo, SelectPlazo);
 
 //APLICAMOS DOM
 //MUESTRA LAS COTIZACIONES
@@ -48,7 +63,36 @@ const mostrarCotizaciones = () => {
 
 //MUETRA LA SIMULACION DEL PRESTAMO
 const MuestraSimulacionPrestamo = (prestamo) => {
-  IdPrestamo.innerHTML = "";
+  let texto = "Cuota Mensual: " + prestamo.cuota;
+
+  Swal.fire({
+    title: "Simulación Prestamo",
+    //text: "Cuota Mensual: " + prestamo.cuota,
+    html:
+      "<b>Cuota Mensual: " +
+      prestamo.cuota +
+      "</b> <br> <b>Total a Pagar: " +
+      prestamo.Total +
+      "</b> <br> <b>Total Interes: " +
+      prestamo.interes +
+      "</b>",
+    imageUrl: "./img/simula_prestamo4.jpg",
+    icon: "success",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Eviar por Correo",
+    cancelButtonText: "Cerrar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        "Simulación",
+        "Enviada al correo: " + prestamo.Correo,
+        "success"
+      );
+    }
+  });
+  /* IdPrestamo.innerHTML = "";
   IdPrestamo.innerHTML = `
     <div class="card tarjeta shadow-lg" style="width: 15rem;">      
       <img src="./img/simula_prestamo4.jpg" class="card-img-top" alt="test">
@@ -60,7 +104,7 @@ const MuestraSimulacionPrestamo = (prestamo) => {
         <b>Total Interes: ${prestamo.interes}</b>
         <!--<a href="#" class="btn btn-primary">Cerrar</a>-->
       </div>
-    </div>`;
+    </div>`; */
 
   txtNombre.value = prestamo.Nombre;
   txtApelli.value = prestamo.Apellido;
@@ -78,6 +122,22 @@ const MuestraOperacionMonedaExtrajera = (
   cantidad,
   resultado
 ) => {
+  let Texto = operacion=="Compra"? "Necesita: ":"Recibe: ";
+
+  Swal.fire({
+    imageUrl: "./img/moneda"+ idmoneda+".jpg",
+    title: operacion,
+    text: moneda[idmoneda].nombre +' (' + moneda[idmoneda].sigla +")",
+    html:"<b>Cotización: " + formatPeso.format(cotiza) +" </b> <br> <b> Cantidad a la " + operacion +": " + formatPeso.format(cantidad) +"</b><br><b>" + Texto + formatPeso.format(resultado) + "</b>",
+    
+    /* icon: "success", */
+    /* showCancelButton: true, */
+    /* confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Eviar por Correo", */
+    /* cancelButtonText: "Cerrar", */
+  })
+
   idOperaMoneda.innerHTML = "";
   idOperaMoneda.innerHTML += `
       <div class="col-md-3 card tarjeta" style="width: 18rem;">
@@ -92,7 +152,7 @@ const MuestraOperacionMonedaExtrajera = (
               <b>Cantidad a la ${operacion}:  ${formatPeso.format(
     cantidad
   )}</b><br>
-              <b>Recibe:  ${formatPeso.format(resultado)}</b>
+              <b> ${Texto} ${formatPeso.format(resultado)}</b>
               <!--<a href="#" class="btn btn-primary">Cerrar</a>-->
           </div>
       </div>`;
@@ -109,7 +169,7 @@ class MonedaExtranjera {
 }
 //ARRAYS DE MONEDAS
 const moneda = [];
-moneda.push(new MonedaExtranjera("Dolar EEUU", "USD", 275, 280));
+moneda.push(new MonedaExtranjera("Dolar EEUU", "USD", 289, 292));
 moneda.push(new MonedaExtranjera("Euro", "EUR", 134, 135));
 moneda.push(new MonedaExtranjera("Real Brasileño", "R$", 4.02, 4.02));
 
@@ -159,18 +219,26 @@ class prestamo {
         if (isNaN(interes) == false) {
           return true;
         } else {
-          alert("Interes Ingresado incorrecto");
+          MsjError("Interes Ingresado incorrecto");
           return false;
         }
       } else {
-        alert("Plazo Ingresado incorrecto");
+        MsjError("Plazo Ingresado incorrecto");
         return false;
       }
     } else {
-      alert("Monto Ingresado incorrecto");
+      MsjError("Monto Ingresado incorrecto");
       return false;
     }
   }
+}
+
+function MsjError(texto) {
+  Swal.fire({
+    icon: "error",
+    title: "Error...",
+    text: texto,
+  });
 }
 
 function OperaMoneda() {
@@ -222,9 +290,11 @@ function guardarStoragePrestamo(Prestamo) {
 
 //Esta función va a recuperar un objeto del storage si se guardó (a través de la key), y a devolver false si no existe
 function recuperarStoragePrestamo(Prestamo) {
-  let prestamo = JSON.parse(localStorage.getItem(Prestamo))||false;
+  let prestamo = JSON.parse(localStorage.getItem(Prestamo)) || false;
   return prestamo;
 }
+
+
 //APLICAMOS EVENTOS
 //boton consultar cotizaciones
 btnConsultaCotiza.onclick = () => {
@@ -249,5 +319,5 @@ btnPrestamoSimula.onclick = () => {
 
   RecuperaPre
     ? MuestraSimulacionPrestamo(RecuperaPre)
-    : alert("No hay simulaciones Guardadas");
+    : MsjError("No hay simulaciones Guardadas");
 };
