@@ -4,24 +4,49 @@ let interes = 0;
 let nombre = "";
 let direccion = "";
 let correo = "";
-let txtNombre = document.getElementById("PresNombre");
-let txtApelli = document.getElementById("PresApelli");
-let txtCorreo = document.getElementById("PresCorreo");
-let txtMonto = document.getElementById("PresMonto");
-let cbInteres = document.getElementById("PresInteres");
-let cbPlazo = document.getElementById("PresPlazo");
-let IdCotiza = document.getElementById("cotizaciones");
-let IdPrestamo = document.getElementById("CardPrestamo");
-let idOperaMoneda = document.getElementById("OperaMoneda");
-let btnConsultaCotiza = document.getElementById("btnConsultaCotiza");
-let btnCalculaPrestamo = document.getElementById("btnCalculaPrestamo");
-let btnCalculaComVta = document.getElementById("btnCalculaComVta");
-let chkPrestamo = document.getElementById("GuardarSimulaPrestamo");
-const SelectPorInt = document.querySelector("#PresInteres");
-const SelectPlazo = document.querySelector("#PresPlazo");
+const  txtNombre = document.getElementById("PresNombre"),
+txtApelli = document.getElementById("PresApelli"),
+txtCorreo = document.getElementById("PresCorreo"),
+txtMonto = document.getElementById("PresMonto"),
+cbInteres = document.getElementById("PresInteres"),
+cbPlazo = document.getElementById("PresPlazo"),
+IdCotiza = document.getElementById("cotizaciones"),
+IdPrestamo = document.getElementById("CardPrestamo"),
+idOperaMoneda = document.getElementById("OperaMoneda"),
+btnConsultaCotiza = document.getElementById("btnConsultaCotiza"),
+btnCalculaPrestamo = document.getElementById("btnCalculaPrestamo"),
+btnCalculaComVta = document.getElementById("btnCalculaComVta"),
+chkPrestamo = document.getElementById("GuardarSimulaPrestamo"),
+SelectPorInt = document.querySelector("#PresInteres"),
+SelectPlazo = document.querySelector("#PresPlazo"),
+SelectMoneda= document.getElementById("SelecMoneda");
 
 PorInt = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 PrePlazo = [12, 24, 36, 48, 60, 72, 84];
+
+const crearSelectsMonedas = async () => {
+  const respuesta = await fetch('./js/data.json');
+  const dataJson = await respuesta.json();
+      for (const item of dataJson) {
+          SelectMoneda.innerHTML +=`<option value="${item.id}">${item.nombre}</option>`;
+      }
+      SelectMoneda.addEventListener('change', (e) => {
+          mostrarBandera(e.target);
+  })
+}
+crearSelectsMonedas();
+
+const mostrarBandera = async (element) => {
+  const respuesta = await fetch('./js/data.json');
+  const dataJson = await respuesta.json();
+  for (const item of dataJson) {
+      if (item.id == element.value) {
+          let imagen = element.parentElement.querySelector('img');
+          imagen.src = `https://www.countryflagsapi.com/png/${item.flag}`;
+      }
+  }
+}
+
 
 //FUNCION QUE DA FORMATO DE MONEDA
 const formatPeso = new Intl.NumberFormat("es-CO", {
@@ -42,10 +67,10 @@ cargarSelect(PrePlazo, SelectPlazo);
 
 //APLICAMOS DOM
 //MUESTRA LAS COTIZACIONES
-const mostrarCotizaciones = () => {
+const mostrarCotizaciones = (arrayMoneda) => {
   let contador = 0;
   IdCotiza.innerHTML = "";
-  for (const cot of moneda) {
+  for (const cot of arrayMoneda) {
     IdCotiza.innerHTML += `
       <div class="card tarjeta shadow-lg" style="width: 15rem;">
           <img src="./img/moneda${contador}.jpg" class="card-img-top" alt="test">
@@ -92,19 +117,6 @@ const MuestraSimulacionPrestamo = (prestamo) => {
       );
     }
   });
-  /* IdPrestamo.innerHTML = "";
-  IdPrestamo.innerHTML = `
-    <div class="card tarjeta shadow-lg" style="width: 15rem;">      
-      <img src="./img/simula_prestamo4.jpg" class="card-img-top" alt="test">
-      <div class="card-body">
-        <h5 class="card-title">Simulación del Prestamo</h5>
-        <p class="card-text">
-        <b>Cuota Mensual: ${prestamo.cuota}</b> <br>
-        <b>Total a Pagar: ${prestamo.Total}</b> <br>
-        <b>Total Interes: ${prestamo.interes}</b>
-        <!--<a href="#" class="btn btn-primary">Cerrar</a>-->
-      </div>
-    </div>`; */
 
   txtNombre.value = prestamo.Nombre;
   txtApelli.value = prestamo.Apellido;
@@ -112,66 +124,7 @@ const MuestraSimulacionPrestamo = (prestamo) => {
   txtMonto.value = prestamo.MontoPre;
   cbInteres.value = prestamo.IntPre;
   cbPlazo.value = prestamo.PlazoPre;
-  /* IdPrestamo.append(Tarjeta);*/
 };
-//MUESTRA LA OPERACION CON MONEDA EXTRANJERA REALIZADA
-const MuestraOperacionMonedaExtrajera = (
-  idmoneda,
-  operacion,
-  cotiza,
-  cantidad,
-  resultado
-) => {
-  let Texto = operacion=="Compra"? "Necesita: ":"Recibe: ";
-
-  Swal.fire({
-    imageUrl: "./img/moneda"+ idmoneda+".jpg",
-    title: operacion,
-    text: moneda[idmoneda].nombre +' (' + moneda[idmoneda].sigla +")",
-    html:"<b>Cotización: " + formatPeso.format(cotiza) +" </b> <br> <b> Cantidad a la " + operacion +": " + formatPeso.format(cantidad) +"</b><br><b>" + Texto + formatPeso.format(resultado) + "</b>",
-    
-    /* icon: "success", */
-    /* showCancelButton: true, */
-    /* confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Eviar por Correo", */
-    /* cancelButtonText: "Cerrar", */
-  })
-
-  idOperaMoneda.innerHTML = "";
-  idOperaMoneda.innerHTML += `
-      <div class="col-md-3 card tarjeta" style="width: 18rem;">
-          <img src="./img/moneda${idmoneda}.jpg" class="card-img-top" alt="test">
-          <div class="card-body">
-              <h5 class="card-title"> ${operacion}</h5>
-              <h5 class="card-title"> ${moneda[idmoneda].nombre} (${
-    moneda[idmoneda].sigla
-  })</h5>
-              <p class="card-text">
-              <b>Cotización: ${formatPeso.format(cotiza)}</b> <br>
-              <b>Cantidad a la ${operacion}:  ${formatPeso.format(
-    cantidad
-  )}</b><br>
-              <b> ${Texto} ${formatPeso.format(resultado)}</b>
-              <!--<a href="#" class="btn btn-primary">Cerrar</a>-->
-          </div>
-      </div>`;
-};
-
-//OBJETO MONEDAEXTRANJERA
-class MonedaExtranjera {
-  constructor(nombre, sigla, precioCompra, precioVenta) {
-    this.nombre = nombre;
-    this.sigla = sigla;
-    this.precioCompra = precioCompra;
-    this.precioVenta = precioVenta;
-  }
-}
-//ARRAYS DE MONEDAS
-const moneda = [];
-moneda.push(new MonedaExtranjera("Dolar EEUU", "USD", 289, 292));
-moneda.push(new MonedaExtranjera("Euro", "EUR", 134, 135));
-moneda.push(new MonedaExtranjera("Real Brasileño", "R$", 4.02, 4.02));
 
 //funcion compar-Vender moneda extranjera
 const CompraVentaMonedaExtranjera = (cotiza, cantidad) => cantidad * cotiza;
@@ -241,29 +194,55 @@ function MsjError(texto) {
   });
 }
 
-function OperaMoneda() {
+//MUESTRA LA OPERACION CON MONEDA EXTRANJERA REALIZADA
+function OperaMoneda(arrayMoneda) {
   let cantidad = document.getElementById("MontoCompVta").value;
-
+  let Texto="";
+  let operacion="";
+  let cotiza=0;
   if (isNaN(cantidad) == false) {
     let valor = document.getElementById("SelecMoneda").value;
+    let array = arrayMoneda.filter(arrayMoneda => arrayMoneda.id==valor);
+    array.forEach((Moneda)=>{
 
-    document.getElementById("RadioCompra").checked
-      ? MuestraOperacionMonedaExtrajera(
-          valor,
-          "Compra",
-          moneda[valor].precioVenta,
-          cantidad,
-          CompraVentaMonedaExtranjera(moneda[valor].precioVenta, cantidad)
-        )
-      : MuestraOperacionMonedaExtrajera(
-          valor,
-          "Venta",
-          moneda[valor].precioCompra,
-          cantidad,
-          CompraVentaMonedaExtranjera(moneda[valor].precioCompra, cantidad)
-        );
+    if (document.getElementById("RadioCompra").checked) {
+      Texto="Necesita: ";
+      cotiza=Moneda.precioVenta;
+      operacion="Compra"
+    }else {
+      Texto="Recibe: "
+      operacion="Venta"
+      cotiza=Moneda.precioCompra;
+    }
+
+    Swal.fire({
+      imageUrl: "./img/moneda"+ Moneda.id +".jpg",
+      title: operacion,
+      text: Moneda.nombre +' (' + Moneda.sigla +")",
+      html:"<b>Cotización: " + formatPeso.format(cotiza) +" </b> <br> <b> Cantidad a la " + operacion +": " + formatPeso.format(cantidad) +"</b><br><b>" + Texto + formatPeso.format(CompraVentaMonedaExtranjera(cotiza, cantidad)) + "</b>",
+    })
+
+    idOperaMoneda.innerHTML = "";
+    idOperaMoneda.innerHTML += `
+        <div class="col-md-3 card tarjeta" style="width: 18rem;">
+            <img src="./img/moneda${Moneda.id}.jpg" class="card-img-top" alt="test">
+            <div class="card-body">
+                <h5 class="card-title"> ${operacion}</h5>
+                <h5 class="card-title"> ${Moneda.nombre} (${
+      Moneda.sigla
+    })</h5>
+                <p class="card-text">
+                <b>Cotización: ${formatPeso.format(cotiza)}</b> <br>
+                <b>Cantidad a la ${operacion}:  ${formatPeso.format(
+      cantidad
+    )}</b><br>
+                <b> ${Texto} ${formatPeso.format(CompraVentaMonedaExtranjera(cotiza, cantidad))}</b>
+                <!--<a href="#" class="btn btn-primary">Cerrar</a>-->
+            </div>
+        </div>`;
+      }) 
   } else {
-    alert("Cantidad Ingresada incorrecta");
+    MsjError("Cantidad Ingresada incorrecta");
   }
 }
 
@@ -286,6 +265,18 @@ function CuotaPrestamo() {
 
 function guardarStoragePrestamo(Prestamo) {
   localStorage.setItem("prestamo", JSON.stringify(Prestamo));
+  Toastify({
+    text: "Simulación Guardada",
+    className: "info",
+    newWindow: true,
+    duration: 3500,
+    gravity: "top",
+    position: "right",
+    close: true,
+    style: {
+      background: "linear-gradient(to right, #00b09b, #96c93d)",
+    }
+  }).showToast();
 }
 
 //Esta función va a recuperar un objeto del storage si se guardó (a través de la key), y a devolver false si no existe
@@ -298,7 +289,8 @@ function recuperarStoragePrestamo(Prestamo) {
 //APLICAMOS EVENTOS
 //boton consultar cotizaciones
 btnConsultaCotiza.onclick = () => {
-  mostrarCotizaciones();
+ /*  mostrarCotizaciones(); */
+  bringData("cotiza");
 };
 
 //boton calcula prestamo
@@ -311,7 +303,8 @@ btnCalculaPrestamo.onclick = () => {
 
 //boton commpra venta moneda extrajera
 btnCalculaComVta.onclick = () => {
-  OperaMoneda();
+  /* OperaMoneda(); */
+  bringData("compra/venta");
 };
 
 btnPrestamoSimula.onclick = () => {
@@ -321,3 +314,14 @@ btnPrestamoSimula.onclick = () => {
     ? MuestraSimulacionPrestamo(RecuperaPre)
     : MsjError("No hay simulaciones Guardadas");
 };
+
+async function bringData(operacion) {
+  const response = await fetch('./js/data.json');
+  const data = await response.json();
+  if (operacion=="cotiza"){
+    mostrarCotizaciones(data);
+  }else {
+    OperaMoneda(data);
+  }
+}
+

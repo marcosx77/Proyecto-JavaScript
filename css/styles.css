@@ -27,6 +27,9 @@
   background-color: lightgray; 
   opacity: 0.4;
 }
+.label img{
+  max-width:45px;
+  }
 
 .borde {
   background-color: #15bd55;

@@ -1,0 +1,50 @@
+[
+    {
+        "id":"0",
+        "nombre":"Dolar EEUU",
+        "sigla":"USD",
+        "precioCompra":289,
+        "precioVenta":292,
+        "flag":"US"
+    },
+    {
+        "id":"1",
+        "nombre":"Euro",
+        "sigla":"EUR",
+        "precioCompra":134,
+        "precioVenta":135,
+        "flag":"EU"
+    },
+    {
+        "id":"2",
+        "nombre":"Real Brasileño",
+        "sigla":"R$",
+        "precioCompra":26.48,
+        "precioVenta":26.48,
+        "flag":"BR"
+    },
+    {
+        "id":"3",
+        "nombre":"Peso Uruguayo",
+        "sigla":"$URY",
+        "precioCompra":3.37,
+        "precioVenta":3.37,
+        "flag":"URY"
+    },
+    {
+        "id":"4",
+        "nombre":"Sol Peruano",
+        "sigla":"SOL",
+        "precioCompra":35.33,
+        "precioVenta":35.33,
+        "flag":"PER"
+    },
+    {
+        "id":"5",
+        "nombre":"Peso Chileno",
+        "sigla":"CLP",
+        "precioCompra":0.14,
+        "precioVenta":0.14,
+        "flag":"CHL"
+    }
+]
