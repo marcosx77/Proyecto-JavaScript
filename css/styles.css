@@ -5,7 +5,7 @@
 }
 
 .cabecera{
-  background-image: url("../img/F100022197_2.jpg");
+  background-image: url("../img/F100022197_2_4.jpg");
   width: 100%;
   height: 300px;
   background-size: cover;
@@ -14,7 +14,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items:flex-start;
 }
 .cabecera::before{
   content: "";
@@ -23,14 +23,72 @@
   height: 100%;
   top:0;
   left:0;
-  
-  background-color: lightgray; 
-  opacity: 0.4;
+}
+ .InfoCompra {
+  background-image: url("../img/F100022197_2_4.jpg");
+  width: 100%;  
+  height: 200px; 
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.InfoCompra h3{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 2rem;
+  color:white;
+  margin-left: 30px;
+  padding-top: 20px;
+}
+.InfoCompra p{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.2rem;
+  color:white;
+  margin-left: 30px;
+}
+
+.QuienesSomos {
+  background-image: url("../img/F100022197_2_4.jpg");
+  width: 100%;  
+  height: 300px; 
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.QuienesSomos h3{
+  font-family:'Bangers', cursive;
+  font-size: 4rem;
+  color:white;
+  margin-left: 30px;
+  padding-top: 20px;
+}
+.QuienesSomos h5{
+  font-family:'Bangers', cursive;
+  font-size: 1.5rem;
+  color:white;
+  margin-left: 30px;
+}
+.QuienesSomos p{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1rem;
+  color:white;
+  margin-left: 30px;
+}
+ /* background-color: lightgray; 
+  opacity: 0.4;*/
+
+
+#CardCotiza2{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.2rem;
+}
+#CardCotiza3{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.2rem;
 }
 .label img{
   max-width:45px;
   }
-
+  .ImgCotiza{
+    max-width:40px;
+  }
 .borde {
   background-color: #15bd55;
   border: 1px solid gray;
@@ -44,13 +102,20 @@
   color:white;
  
 }
-.TituloPriocipal{
+.TituloPrincipal{
   /* font-family: 'Raleway', sans-serif; */
   font-family: 'Bangers', cursive;
   font-size: 130px; 
   position: relative;
 }
-
+.TarjetaSimula{
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+.simulaCompra{
+  font-family: 'Bangers', cursive;
+  font-size: 2rem;
+}
 .secciones{
   margin-top: 6%;
 

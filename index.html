@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ejercicios</title>
+    <title>Te Presto - Servicios Financieros</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -55,7 +55,7 @@
               <a class="nav-link active" href="#MnuCompVta"
                 >Compra-Venta Moneda</a
               >
-              <a class="nav-link active" href="#">Quienes Somos</a>
+              <a class="nav-link active" href="#QuienesSomos">Quienes Somos</a>
             </div>
           </div>
         </div>
@@ -64,19 +64,63 @@
 
     <main>
       <div class="cabecera titulo">
-        <p class="TituloPriocipal">Te presto</p>
+        <p class="TituloPrincipal">Te presto</p>
         <p class="texto">Servicios Financieros</p>
       </div>
 
-      <div id="MnuPrestamo" class="container secciones">
+      <div class="container">
+        <div class="row">
+          <div class="col-6">
+            <div class="card shadow" style="width: 19rem;">
+              <img src="./img/image-3.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h2 class="card-title">Moneda Extrajeta</h2>
+                <p class="card-text">La mejor cotización del mercado</p>
+                <a href="#MnuCompVta" class="btn btn-primary">Simulador Compra/Venta</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+          <div class="card tarjeta shadow" style="width: 40rem;">
+            <div class="container">
+              <div class="row">
+                <div class="col-6">            
+                    <h4 class="card-title">Cotizaciones</h4>
+                    <ul class="list-group list-group-flush" id="CardCotiza1">
+                    </ul>
+                </div>
+                <div class="col-3" id="CardCotiza2">
+                    <h5>Compra</h5>
+                    <ul class="list-group list-group-flush" id="CardCotiza2">
+                    </ul>
+                </div>
+                <div class="col-3" id="CardCotiza3">
+                    <h5>Venta</h5>
+                    <ul class="list-group list-group-flush" id="CardCotiza3">
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      
+      <div class="InfoCompra">
+        <h3>Novedades sobre Impuesto PAIS</h3>
+        <p>Te comentamos las novedades acerca del Impuesto Para una Argentina Inclusiva y Solidaria (Impuesto PAIS), que se aplicará sobre las compras de moneda extranjera y consumos en el exterior, en el marco de la Ley de Solidaridad Social y Reactivación Productiva (Ley Nº 27.541 y Decreto N° 99/2019).</p>
+        <p>La ley entró en vigencia el 23/12/2019, por lo que quedan comprendidas las operaciones realizadas desde ese día en adelante.</p>
+      </div>
+
+      <div id="MnuPrestamo" class="container ">
         <div class="row justify-content-center">
           <div class="col-md-12 card tarjeta shadow-lg text-center">
-            <h2>Simulá tu Préstamo</h2>
-            <h3>Ahora</h3>
+            <h2 class="card-title">Simulá tu Préstamo</h2>
+            <h3 class="card-title">Ahora</h3>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-md-4 card tarjeta shadow-lg">
+          <div class="col-md-4 card tarjeta shadow-lg secciones">
             <h4>¿Cuáles son los requisitos para pedir un préstamo?</h4>
             <p>1. Ser ciudadano argentino o residente en el país.</p>
             <p>2. Tener 18 años o más.</p>
@@ -90,7 +134,7 @@
             <br />
             <h3>¡Así de Facíl!</h3>
           </div>
-          <div class="col-md-4 card tarjeta shadow-lg">
+          <div class="col-md-4 card tarjeta shadow-lg secciones">
             <h2>Ingresa los Datos solicitados</h2>
             <input
               id="PresNombre"
@@ -180,30 +224,15 @@
         </div>
       </div>
 
-      <div id="MnuCotiza" class="container secciones">
-        <div class="row justify-content-star">
-          <div class="col-md-3">
-            <h2>Moneda Extrajeta</h2>
-            <p>La mejor cotización del mercado</p>
-            <p>Dolares/Euros/Reales</p>
-            <button
-              id="btnConsultaCotiza"
-              type="button"
-              class="btn btn-primary"
-              data-bs-toggle="button"
-              autocomplete="off"
-            >
-              Consulta Cotizaciones
-            </button>
-          </div>
-          <div class="col-md-9">
-            <div id="cotizaciones" class="row"></div>
+      <div id="MnuCompVta" class="container">
+        <div class="row justify-content-center TarjetaSimula">
+          <div class="col-md-12 card tarjeta shadow-lg text-center ">
+            <h2 class="card-title">Compra-Venta de Moneda Extranjera</h2>
+            <h4>Simulá en timpo real la operación de Compra/Venta</h4>
           </div>
         </div>
-      </div>
-      <div id="MnuCompVta" class="container secciones">
         <div class="row justify-content-md-lef">
-          <h2>Simulador de Compra/Venta</h2>
+          <h2 class="simulaCompra">Simulador de Compra/Venta</h2>
 
           <div class="col-md-3">
               <div class="form-check form-check-inline">
@@ -238,10 +267,6 @@
                       class="form-select form-select-sm"
                       aria-label=".form-select-sm example"
                     >
-                      <!-- <option selected>Seleccione Moneda</option> -->
-                     <!--  <option selected value="0">Dolares</option>
-                      <option value="1">Euros</option>
-                      <option value="2">Reales</option> -->
                     </select>
                 </div>  
             </div>
@@ -269,8 +294,14 @@
           <div class="col-md-6">
             <div id="OperaMoneda" class="row"></div>
           </div>
-          <!-- <div id="OperaMoneda"></div> -->
         </div>
+      </div>
+      <div class="QuienesSomos" id="QuienesSomos">
+        <h3>Te Presto</h3>
+        <h5>Servicios Financieros</h5>
+        <p>Con más de medio siglo de actuación comercial en el país, con una intachable trayectoria, ha permitido que Te Presto SA sea considerada como la empresa líder en los rubros de cambio y prestamos. Esta jerarquía nos enorgullece y nos alienta a continuar creciendo, con la seriedad y el compromiso que nos caracterizan, junto a los numerosos clientes que a diario depositan su confianza en nosotros.
+
+          Ubicada en la esquina de 25 de mayo y Rivadavia, a donde están muy cerca otras casas de cambio, Te Presto es considerada de las más antiguas y prestigiosas casas de cambio en Córdoba.</p>
       </div>
     </main>
 
